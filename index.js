@@ -28,11 +28,12 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+  Counter1 code has a clouser since its a functions thats encased inside another function. While Counter2 refrences a variable outside of its scope inorder to iterate.
   2. Which of the two uses a closure? How can you tell?
-  
+  Counter 1 uses clouser since its a functions thats encloused inside another functions. With the bonus effect that that there aren't any glogabal variables that it refrences from.
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+     Coutner1 would be most preferable if you want a function to run and have the value stored after it finished executing the task. While Counter2 is most useful when you simply want to iterate on a set interger.
 */
 
 // counter1 code
@@ -61,9 +62,8 @@ Use the inning function below to do the following:
   For example: invoking inning() should return a numerical score value of 0, 1, or 2
 */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
+function inning(){
+  return Math.floor(Math.random() *3)
 
 }
 
@@ -80,9 +80,13 @@ For example: invoking finalScore(inning, 9) might return this object:
 }
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
+function finalScore(inning,num){
+  function inning(){
+    return Math.floor(Math.random() *num)
+  }
+    var inin = {Home:inning(num++),
+                Away:inning(num++)}
+    return inin
 
 }
 
@@ -91,8 +95,10 @@ function finalScore(/*code Here*/){
 // the function should take the inning function as an argument 
 // it should return an object with with a score for home and a score for away that that populates from invoking the inning callback. */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(inning) {
+  var inin = {Home:inning(),
+    Away:inning()}
+return inin
 }
 /* Task 5: scoreboard()
 Use the scoreboard function below to do the following:
